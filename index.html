@@ -12,14 +12,41 @@
         <title>Formulario De Inicio De Sesion</title>
 </head>
 <body>
-    <div class="container-form">
+    
+    <div class="container">
+        <div class="bubbles">
+            <span style="--i:11;"></span>
+            <span style="--i:12;"></span>
+            <span style="--i:24;"></span>
+            <span style="--i:10;"></span>
+            <span style="--i:14;"></span>
+            <span style="--i:23;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:16;"></span>
+            <span style="--i:19;"></span>
+            <span style="--i:20;"></span>
+            <span style="--i:22;"></span>
+            <span style="--i:25;"></span>
+            <span style="--i:18;"></span>
+            <span style="--i:21;"></span>
+            <span style="--i:15;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:26;"></span>
+            <span style="--i:17;"></span>
+            <span style="--i:13;"></span>
+            <span style="--i:28;"></span>
+
+        </div>
+    </div>
+
+
+    <div class="container-form register">
         <div class="information">
             <div class="info-childs">
                 <h2>Bienvenido</h2>
-                <p>Bienvenido a nuestro punto de ventas 
-                    <br/> gratuito para todo el mundo. 
-                    <br/>Por favor inicia sesion con tus datos o registrate con nosotros</p>
-                    <input type="button" value="Iniciar Sesion">
+                <p>Punto de ventas gratuito para todo el mundo. 
+                    <br/>Por favor inicia sesion con tus datos</p>
+                    <input type="button" value="Iniciar Sesion" id="sign-in">
             </div>
         </div>
         <div class="form-information">
@@ -53,5 +80,43 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+    <div class="container-form login hide">
+        <div class="information">
+            <div class="info-childs">
+                <h2>Bienvenido Nuevamente</h2>
+                <p>Punto de ventas gratuito para todo el mundo. 
+                    <br/>Registrate con nosotros</p>
+                    <input type="button" value="Registrarse" id="sign-up">
+            </div>
+        </div>
+        <div class="form-information">
+            <div class="form-information-childs">
+                <h2>Iniciar Sesion</h2>
+                <div class="icons">
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxs-envelope'></i>
+                    <i class='bx bxl-linkedin-square'></i>
+                    <p>O iniciar sesion con una cuenta</p>
+                    <form class="form">
+                        <label>
+                            <i class='bx bx-envelope' ></i>
+                            <input type="email" placeholder="Correo Electronico">
+                        </label>
+                        <label>
+                            <i class='bx bxs-key' ></i>
+                            <input type="password" placeholder="Contraseña">
+                        </label>
+                        <input type="submit" value="Iniciar Sesion">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
 </body>
 </html>
