@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -103,6 +104,34 @@
             background-color: #007bff;
         }
 
+        #addButton {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 28px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #addButton:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        #m3uFile {
+            display: none;
+        }
+
         /* Estilo para scrollbar personalizado */
         #tabContainer::-webkit-scrollbar {
             height: 8px;
@@ -117,6 +146,8 @@
 <body>
 
     <h1></h1>
+    <button id="addButton">+</button>
+    <input type="file" id="m3uFile" accept=".m3u">
     <div id="videoContainer">
         <video id="videoPlayer" controls></video>
     </div>
@@ -128,31 +159,30 @@
 
     <script>
         const videoPlayer = document.getElementById('videoPlayer');
+        const m3uFileInput = document.getElementById('m3uFile');
         const channelList = document.getElementById('channelList');
+        const addButton = document.getElementById('addButton');
         const tabContainer = document.getElementById('tabContainer');
         const searchInput = document.getElementById('searchInput');
-
-        // URL de la playlist M3U
-        const m3uUrl = 'https://raw.githubusercontent.com/Ruminot21/tvesiptv20/refs/heads/main/pluto.m3u'; // Reemplaza con la URL de tu playlist M3U
 
         let channelsByCategory = {};
         let currentCategory = '';
 
-        // Cargar lista M3U al iniciar la página
-        window.onload = () => {
-            fetchM3U(m3uUrl);
-        };
+        addButton.addEventListener('click', () => {
+            m3uFileInput.click();
+        });
 
-        function fetchM3U(url) {
-            fetch(url)
-                .then(response => response.text())
-                .then(contents => {
+        m3uFileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const contents = e.target.result;
                     parseM3U(contents);
-                })
-                .catch(error => {
-                    alert('Error al cargar la playlist: ' + error.message);
-                });
-        }
+                };
+                reader.readAsText(file);
+            }
+        });
 
         function parseM3U(contents) {
             const lines = contents.split('\n');
